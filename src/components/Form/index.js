@@ -12,6 +12,7 @@ const Form = () => {
 
   const addNewMessage = () => {
     dispatch(postMessage(inputText));
+    dispatch(updateInput(''));
   };
 
   const handleSubmit = (e) => {
