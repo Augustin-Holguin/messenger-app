@@ -1,3 +1,5 @@
+import { NEW_INPUT, POST_MESSAGE } from 'src/actions';
+
 const initialState = {
   inputText: '',
   messages: [],
@@ -5,7 +7,12 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'ADD_MESSAGE':
+    case NEW_INPUT:
+      return {
+        ...state,
+        inputText: action.payload,
+      };
+    case POST_MESSAGE:
       return {
         ...state,
         messages: [...state.messages, action.payload],
