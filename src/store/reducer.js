@@ -3,6 +3,7 @@ import { NEW_INPUT, POST_MESSAGE } from 'src/actions';
 const initialState = {
   inputText: '',
   messages: [],
+  user: 'John Doe',
 };
 
 const reducer = (state = initialState, action = {}) => {

@@ -1,0 +1,27 @@
+.message {
+  text-align: left;
+  padding: 1em 4em;
+
+  &__user {
+    margin-left: 1em;
+  }
+
+  &__text {
+    background: white;
+    color: #77b3db;
+    width: fit-content;
+    position: relative;
+    padding: 1em;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-top: 1em;
+
+    &__triangle {
+      position: absolute;
+      bottom: 2.5em;
+      left: 0.8em;
+      border-left: 1.2em solid transparent;
+      border-bottom: 1.2em solid white;
+    }
+  }
+}

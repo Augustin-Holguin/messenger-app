@@ -1,0 +1,31 @@
+.form {
+  position: absolute;
+  bottom: 0;
+  height: 4em;
+  width: 100%;
+  background: white;
+
+  &__input {
+    height: 100%;
+    width: 90%;
+    padding-left: 1.5em;
+    font-size: 1.5em;
+    border: none;
+  }
+
+  &__button {
+    height: 100%;
+    width: 10%;
+    border: none;
+    background: transparent;
+    color: #3587BD;
+    position: relative;
+
+    & i {
+      font-size: 2.5em;
+      position: absolute;
+      bottom: .7em;
+      right: .5em;
+    }
+  }
+}

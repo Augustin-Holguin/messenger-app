@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInput, postMessage } from 'src/actions';
+import './style.scss';
 
 const Form = () => {
   const inputText = useSelector((state) => state.inputText);
@@ -34,7 +35,7 @@ const Form = () => {
         type="button"
         onClick={addNewMessage}
       >
-        {'>'}
+        <i className="fab fa-telegram-plane" />
       </button>
     </form>
   );
