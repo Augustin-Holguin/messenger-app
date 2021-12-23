@@ -7,7 +7,7 @@
 
 .message {
   text-align: left;
-  padding: 1.5em 3em;
+  padding: 1em 3em;
   position: relative;
 
   &__author {
@@ -22,7 +22,7 @@
     padding: 1em;
     border-radius: 7.5px;
     font-weight: 500;
-    margin-top: 1em;
+    margin-top: 0.2em;
 
     &__triangle {
       position: absolute;
@@ -33,20 +33,46 @@
       border-top: 1.5em solid white;
     }
 
-    &__delete {
+    &__showMenu {
       position: absolute;
-      right: -2em;
+      visibility: hidden;
       top: 0;
+      right: 5px;
       border: none;
-      background: transparent; 
+      height: 100%;
+      width: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #51585C;
+      background: rgba(255, 255, 255, 0.9);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    &__edit {
+    &:hover &__showMenu {
+      visibility: initial;
+    }
+
+    &__menu {
       position: absolute;
-      right: -2.5em;
-      top: 1.5em;
-      border: none;
-      background: transparent; 
+      width: 220px;
+      left: 20%;
+      top: 65%;
+      background: white;
+      padding: .5em 0;
+      border-radius: 3px;
+      box-shadow: 0 2px 5px 0 rgba(grey,.26), 0 2px 10px 0 rgba(grey,.16);
+
+      &__li {
+        padding: .5em 0 .5em 1em;
+
+        &:hover {
+          background: rgb(241, 240, 240);
+        }
+      }
     }
   }
 }
