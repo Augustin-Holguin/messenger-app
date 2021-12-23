@@ -3,6 +3,9 @@
   height: 100vh;
   margin: auto;
   text-align: center;
-  background: #BDDCF0;
+  background: #E5DDD5;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

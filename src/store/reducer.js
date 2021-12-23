@@ -1,9 +1,18 @@
-import { NEW_INPUT, POST_MESSAGE } from 'src/actions';
+import { v4 as uuidv4 } from 'uuid';
+import { NEW_INPUT, POST_MESSAGE, DELETE_MESSAGE } from 'src/actions';
 
 const initialState = {
   inputText: '',
-  messages: [],
-  user: 'John Doe',
+  user: {
+    pseudo: 'John Doe',
+  },
+  messages: [
+    {
+      id: 1,
+      author: 'John Doe',
+      content: 'Hello World !',
+    },
+  ],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -16,7 +25,13 @@ const reducer = (state = initialState, action = {}) => {
     case POST_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages, action.payload],
+        inputText: '',
+        messages: [...state.messages, { id: uuidv4(), author: state.user.pseudo, content: state.inputText }],
+      };
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        messages: state.messages.filter((message) => message.content !== action.payload),
       };
     default:
       return state;

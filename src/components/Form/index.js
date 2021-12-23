@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInput, postMessage } from 'src/actions';
 import './style.scss';
@@ -6,14 +7,19 @@ const Form = () => {
   const inputText = useSelector((state) => state.inputText);
   const dispatch = useDispatch();
 
+  const inputEl = useRef();
+
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
+
   const handleChange = (e) => {
     const newInputText = e.target.value;
     dispatch(updateInput(newInputText));
   };
 
   const addNewMessage = () => {
-    dispatch(postMessage(inputText));
-    dispatch(updateInput(''));
+    dispatch(postMessage());
   };
 
   const handleSubmit = (e) => {
@@ -26,6 +32,7 @@ const Form = () => {
       <input
         className="form__input"
         type="text"
+        ref={inputEl}
         value={inputText}
         placeholder="Type your message"
         onChange={handleChange}

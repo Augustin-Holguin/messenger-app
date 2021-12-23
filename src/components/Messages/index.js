@@ -1,15 +1,27 @@
+import { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Message from './Message';
 
 const Messages = () => {
   const messages = useSelector((state) => state.messages);
-  const user = useSelector((state) => state.user);
+  const messagesElem = useRef();
+
+  useEffect(() => {
+    messagesElem.current.scrollTo({
+      top: messagesElem.current.scrollHeight,
+      behavior: 'smooth',
+    });
+  }, [messages.length]);
 
   return (
-    <ul>
+    <ul className="messages" ref={messagesElem}>
       {
         messages.map((message) => (
-          <Message key={message} message={message} user={user} />
+          <Message
+            key={message.id}
+            author={message.author}
+            content={message.content}
+          />
         ))
       }
     </ul>
