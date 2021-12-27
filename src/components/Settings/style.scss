@@ -25,7 +25,11 @@
   }
 
   &__form {
-    // display: block;
+    display: none;
+
+    &.form--open {
+      display: block;
+    }
 
     &__input {
       display: block;

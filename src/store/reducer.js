@@ -4,6 +4,7 @@ import {
   POST_MESSAGE,
   DISPLAY_MSG_MENU,
   DELETE_MESSAGE,
+  DISPLAY_LOGIN,
 } from 'src/actions';
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
     },
   ],
   messageMenu: false,
+  loginToggle: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -52,6 +54,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         messages: state.messages.filter((message) => message.content !== action.payload),
+      };
+    case DISPLAY_LOGIN:
+      return {
+        ...state,
+        loginToggle: !state.loginToggle,
       };
     default:
       return state;
