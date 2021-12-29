@@ -5,6 +5,7 @@ import {
   DISPLAY_MSG_MENU,
   DELETE_MESSAGE,
   DISPLAY_LOGIN,
+  UPDATE_LOGIN_INFO,
 } from 'src/actions';
 
 const initialState = {
@@ -22,6 +23,10 @@ const initialState = {
   ],
   messageMenu: false,
   loginToggle: false,
+  login: {
+    email: '',
+    pwd: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -59,6 +64,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loginToggle: !state.loginToggle,
+      };
+    case UPDATE_LOGIN_INFO:
+      return {
+        ...state,
+        login: {
+          email: action.payload.email !== null ? action.payload.email : state.login.email,
+          pwd: action.payload.pwd !== null ? action.payload.pwd : state.login.pwd,
+        },
       };
     default:
       return state;
