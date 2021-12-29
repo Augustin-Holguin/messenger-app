@@ -1,5 +1,5 @@
 // == Import
-import './styles.css';
+import './styles.scss';
 
 import Settings from 'src/components/Settings';
 import Messages from 'src/components/Messages';

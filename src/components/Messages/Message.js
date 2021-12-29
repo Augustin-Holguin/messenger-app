@@ -16,6 +16,7 @@ const Message = ({ author, content }) => {
     const element = e.target.closest('.message').getAttribute('messageid');
 
     dispatch(deleteMessage(element));
+    dispatch(displayMsgMenu(!messageMenu));
   };
 
   return (
