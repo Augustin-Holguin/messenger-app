@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateInput, postMessage } from 'src/actions';
+import { updateMsgInput, postMessage } from 'src/actions';
 import './style.scss';
 
 const Form = () => {
@@ -15,7 +15,7 @@ const Form = () => {
 
   const handleChange = (e) => {
     const newInputText = e.target.value;
-    dispatch(updateInput(newInputText));
+    dispatch(updateMsgInput(newInputText));
   };
 
   const addNewMessage = () => {

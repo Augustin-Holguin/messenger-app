@@ -7,32 +7,31 @@ const Settings = () => {
   const loginToggle = useSelector((state) => state.loginToggle);
 
   const dispatch = useDispatch();
-  const updateLoginToggle = () => dispatch(displayLogin());
 
-  const login = useSelector((state) => state.login);
+  const { email, pwd } = useSelector((state) => state.login);
 
   return (
-    <div className="login">
+    <div className={loginToggle ? 'login' : 'login login--closed'}>
       <button
         className={loginToggle ? 'login__toggle-btn btn--open' : 'login__toggle-btn'}
         type="button"
-        onClick={updateLoginToggle}
+        onClick={() => dispatch(displayLogin())}
       >
         &#43;
       </button>
-      <form className={loginToggle ? 'login__form form--open' : 'login__form'} action="submit">
+      <form className="login__form" action="submit">
         <input
           className="login__form__input"
           type="email"
           placeholder="Email"
-          value={login.email}
+          value={email}
           onChange={(e) => dispatch(updateLoginInfo(e.target.value, null))}
         />
         <input
           className="login__form__input"
           type="password"
           placeholder="Password"
-          value={login.pwd}
+          value={pwd}
           onChange={(e) => dispatch(updateLoginInfo(null, e.target.value))}
         />
         <button className="login__form__btn" type="button">Send</button>

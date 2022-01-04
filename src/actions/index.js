@@ -1,12 +1,12 @@
-export const NEW_INPUT = 'NEW_INPUT';
+export const NEW_MSG_INPUT = 'NEW_MSG_INPUT';
 export const POST_MESSAGE = 'POST_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 export const DISPLAY_MSG_MENU = 'DISPLAY_MSG_MENU';
 export const DISPLAY_LOGIN = 'DISPLAY_LOGIN';
 export const UPDATE_LOGIN_INFO = 'UPDATE_LOGIN_INFO';
 
-export const updateInput = (payload) => ({
-  type: NEW_INPUT,
+export const updateMsgInput = (payload) => ({
+  type: NEW_MSG_INPUT,
   payload,
 });
 

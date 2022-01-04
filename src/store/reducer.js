@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import {
-  NEW_INPUT,
+  NEW_MSG_INPUT,
   POST_MESSAGE,
   DISPLAY_MSG_MENU,
   DELETE_MESSAGE,
@@ -31,7 +31,7 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case NEW_INPUT:
+    case NEW_MSG_INPUT:
       return {
         ...state,
         inputText: action.payload,
