@@ -20,8 +20,8 @@ const Messages = () => {
           <Message
             key={message.id}
             author={message.author}
-            avatar={message.avatar}
             content={message.content}
+            isGroupMsg={message.isGroupMsg}
           />
         ))
       }

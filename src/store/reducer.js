@@ -1,30 +1,26 @@
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import {
   NEW_MSG_INPUT,
-  POST_MESSAGE,
+  // POST_MESSAGE,
   DISPLAY_MSG_MENU,
   DELETE_MESSAGE,
   DISPLAY_LOGIN,
   UPDATE_LOGIN_INFO,
+  LOGIN_SUCCESS,
+  MESSAGE_RECEIVED,
 } from 'src/actions';
 
 const initialState = {
   inputText: '',
   user: {
-    pseudo: 'John Doe',
-    avatar: 'https://lh3.googleusercontent.com/zDDxQC7M_4H4Tdg1KKzY5ob7vGdii90EPQ7_X12FNsfRtIwuCiB35QxkRzndEmXegaVhUiCQdSdeSAJRY1_kkoCDKrsmtogSygATSQ=w1400-k',
+    pseudo: null,
   },
-  messages: [
-    {
-      id: 1,
-      author: 'John Doe',
-      content: 'Hello World !',
-    },
-  ],
+  messages: [],
+  lastSender: null,
   messageMenu: false,
   loginToggle: false,
   login: {
-    email: '',
+    email: 'bouclierman@herocorp.io',
     pwd: '',
   },
 };
@@ -36,20 +32,33 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         inputText: action.payload,
       };
-    case POST_MESSAGE:
+    case MESSAGE_RECEIVED:
       return {
         ...state,
         inputText: '',
         messages: [
           ...state.messages,
           {
-            id: uuidv4(),
-            author: state.user.pseudo,
-            avatar: state.user.avatar,
-            content: state.inputText,
+            ...action.payload,
+            isGroupMsg: state.lastSender === action.payload.author,
           },
         ],
+        lastSender: action.payload.author,
       };
+    // case POST_MESSAGE:
+    //   return {
+    //     ...state,
+    //     inputText: '',
+    //     messages: [
+    //       ...state.messages,
+    //       {
+    //         id: uuidv4(),
+    //         author: state.user.pseudo,
+    //         avatar: state.user.avatar,
+    //         content: state.inputText,
+    //       },
+    //     ],
+    //   };
     case DISPLAY_MSG_MENU:
       return {
         ...state,
@@ -71,6 +80,18 @@ const reducer = (state = initialState, action = {}) => {
         login: {
           email: action.payload.email !== null ? action.payload.email : state.login.email,
           pwd: action.payload.pwd !== null ? action.payload.pwd : state.login.pwd,
+        },
+      };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        login: {
+          email: '',
+          pwd: '',
+        },
+        loginToggle: false,
+        user: {
+          ...action.payload,
         },
       };
     default:

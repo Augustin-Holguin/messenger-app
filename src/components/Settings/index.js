@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-max-props-per-line */
 import { useSelector, useDispatch } from 'react-redux';
 
-import { displayLogin, updateLoginInfo } from 'src/actions';
+import { displayLogin, updateLoginInfo, loginSubmit } from 'src/actions';
 import './style.scss';
 
 const Settings = () => {
@@ -19,7 +20,12 @@ const Settings = () => {
       >
         &#43;
       </button>
-      <form className="login__form" action="submit">
+      <form
+        className="login__form" onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(loginSubmit());
+        }}
+      >
         <input
           className="login__form__input"
           type="email"
@@ -34,7 +40,7 @@ const Settings = () => {
           value={pwd}
           onChange={(e) => dispatch(updateLoginInfo(null, e.target.value))}
         />
-        <button className="login__form__btn" type="button">Send</button>
+        <button className="login__form__btn" type="submit">Send</button>
       </form>
     </div>
   );

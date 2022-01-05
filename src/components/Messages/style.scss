@@ -3,19 +3,25 @@
   width: 100%;
   flex: 1;
   margin-bottom: 4em;
+  padding: 1em 3em;
 }
 
 .message {
-  text-align: left;
-  padding: 1em 3em;
+  text-align: right;
+  padding: .2em 0;
   position: relative;
+
+  &.message--left {
+    text-align: left;
+  }
 
   &__author {
     margin-left: 1em;
   }
 
   &__content {
-    background: white;
+    display: inline-block;
+    background: #DCF8C6;
     color: #51585C;
     width: fit-content;
     position: relative;
@@ -24,6 +30,10 @@
     font-weight: 500;
     margin-top: 0.2em;
 
+    &.content--left {
+      background: white;
+    }
+
     &__triangle {
       position: absolute;
       left: -8px;
@@ -31,6 +41,16 @@
       border-left: 1em solid transparent;
       border-top-left-radius: 3px;
       border-top: 1.5em solid white;
+
+      &.triangle--right {
+        border-top: 1.5em solid #DCF8C6;
+        border-right: 1em solid transparent;
+        right: -8px;
+        left: initial;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 0;
+        border-left: none;
+      }
     }
 
     &__showMenu {
@@ -45,7 +65,7 @@
       align-items: center;
       justify-content: center;
       color: #51585C;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(220, 248, 198, 0.9);
 
       &:hover {
         cursor: pointer;

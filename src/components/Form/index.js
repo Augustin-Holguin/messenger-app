@@ -5,13 +5,14 @@ import './style.scss';
 
 const Form = () => {
   const inputText = useSelector((state) => state.inputText);
+  const user = useSelector((state) => state.user.pseudo);
   const dispatch = useDispatch();
 
   const inputEl = useRef();
 
   useEffect(() => {
     inputEl.current.focus();
-  }, []);
+  }, [user]);
 
   const handleChange = (e) => {
     const newInputText = e.target.value;
@@ -36,6 +37,7 @@ const Form = () => {
         value={inputText}
         placeholder="Type your message"
         onChange={handleChange}
+        disabled={!user}
       />
       <button
         className="form__button"

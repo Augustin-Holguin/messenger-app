@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { displayMsgMenu, deleteMessage } from 'src/actions';
 import './style.scss';
 
-const Message = ({ author, content }) => {
+const Message = ({ author, content, isGroupMsg }) => {
   const messageMenu = useSelector((state) => state.messageMenu);
+  const user = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -20,10 +21,14 @@ const Message = ({ author, content }) => {
   };
 
   return (
-    <li className="message" messageid={content}>
-      <p className="message__author">{author}</p>
-      <div className="message__content">
-        <span className="message__content__triangle" />
+    <li className={user.pseudo === author ? 'message' : 'message message--left'} messageid={content}>
+      {
+        !isGroupMsg && <p className="message__author">{author}</p>
+      }
+      <div className={user.pseudo === author ? 'message__content' : 'message__content content--left'}>
+        {
+          !isGroupMsg && <span className={user.pseudo === author ? 'message__content__triangle triangle--right' : 'message__content__triangle'} />
+        }
         {content}
         <div className="message__content__showMenu" onFocus={toggleMenu} onBlur={toggleMenu} tabIndex="0">
           <i className="fas fa-chevron-down" />
