@@ -1,11 +1,20 @@
 {
   "extends": "airbnb",
   "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "babelOptions": { 
+      "configFile": "./client/.babelrc"
+    }
+  },
   "env": {
     "browser": true
   },
   "rules": {
     "brace-style": ["error", "stroustrup"],
+    "linebreak-style": 0,
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
     "no-param-reassign": [
       "error",
       {
@@ -42,8 +51,8 @@
       "alias": {
         "extensions": [".js"],
         "map": [
-          ["src", "./src"],
-          ["app", "./src"]
+          ["src", "./client/src"],
+          ["app", "./client/src"]
         ]
       }
     }
