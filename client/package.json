@@ -1,5 +1,5 @@
 {
-  "name": "react-modele",
+  "name": "messenger-app",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "prop-types": "*",
+    "prop-types": "^15.8.1",
     "react": "*",
     "react-dom": "*",
     "react-redux": "^7.2.6",

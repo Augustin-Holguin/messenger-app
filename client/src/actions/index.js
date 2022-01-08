@@ -9,46 +9,46 @@ export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 export const updateMsgInput = (payload) => ({
-  type: NEW_MSG_INPUT,
-  payload,
+    type: NEW_MSG_INPUT,
+    payload,
 });
 
 export const postMessage = () => ({
-  type: POST_MESSAGE,
+    type: POST_MESSAGE,
 });
 
 export const messageReceived = (payload) => ({
-  type: MESSAGE_RECEIVED,
-  payload,
+    type: MESSAGE_RECEIVED,
+    payload,
 });
 
 export const deleteMessage = (element) => ({
-  type: DELETE_MESSAGE,
-  payload: element,
+    type: DELETE_MESSAGE,
+    payload: element,
 });
 
 export const displayMsgMenu = (payload) => ({
-  type: DISPLAY_MSG_MENU,
-  payload,
+    type: DISPLAY_MSG_MENU,
+    payload,
 });
 
 export const displayLogin = () => ({
-  type: DISPLAY_LOGIN,
+    type: DISPLAY_LOGIN,
 });
 
 export const updateLoginInfo = (email, pwd) => ({
-  type: UPDATE_LOGIN_INFO,
-  payload: {
-    email,
-    pwd,
-  },
+    type: UPDATE_LOGIN_INFO,
+    payload: {
+        email,
+        pwd,
+    },
 });
 
 export const loginSubmit = () => ({
-  type: LOGIN_SUBMIT,
+    type: LOGIN_SUBMIT,
 });
 
 export const loginSuccess = (payload) => ({
-  type: LOGIN_SUCCESS,
-  payload,
+    type: LOGIN_SUCCESS,
+    payload,
 });

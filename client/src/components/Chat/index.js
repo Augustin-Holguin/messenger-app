@@ -7,11 +7,11 @@ import Form from 'src/components/Form';
 
 // == Composant
 const Chat = () => (
-  <div className="app">
-    <Settings />
-    <Messages />
-    <Form />
-  </div>
+    <div className="app">
+        <Settings />
+        <Messages />
+        <Form />
+    </div>
 );
 
 // == Export

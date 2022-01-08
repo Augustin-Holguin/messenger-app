@@ -3,18 +3,18 @@ import { createStore, applyMiddleware, compose } from 'redux';
 
 import ajaxMiddleware from 'src/middlewares/ajaxMiddleware';
 import socketMiddleware from 'src/middlewares/socketMiddleware';
-import reducer from './reducer';
+import reducer from 'src/reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducer,
-  composeEnhancers(
-    applyMiddleware(
-      ajaxMiddleware,
-      socketMiddleware,
+    reducer,
+    composeEnhancers(
+        // applyMiddleware(
+        //     ajaxMiddleware,
+        //     socketMiddleware,
+        // ),
     ),
-  ),
 );
 
 export default store;

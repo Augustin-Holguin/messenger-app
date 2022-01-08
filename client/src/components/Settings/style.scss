@@ -1,9 +1,9 @@
 .login {
-  position: fixed;
-  display: flex;
-  right: 0;
-  margin: 1em;
-  transition: .4s;
+  // position: fixed;
+  // display: flex;
+  // right: 0;
+  // margin: 1em;
+  // transition: .4s;
 
   &.login--closed {
     right: -312px;
@@ -32,26 +32,26 @@
 
   &__form {
 
-    &__input {
-      display: block;
-      height: 3em;
-      width: 18em;
-      font-size: 1em;
-      border: none;
-      margin-bottom: .5em;
-      padding-left: .75em;
-      border-radius: 5px;
-    }
+    // &__input {
+    //   display: block;
+    //   height: 3em;
+    //   width: 18em;
+    //   font-size: 1em;
+    //   border: none;
+    //   margin-bottom: .5em;
+    //   padding-left: .75em;
+    //   border-radius: 5px;
+    // }
 
-    &__btn {
-      width: 100%;
-      line-height: 2.5em;
-      font-size: 1em;
-      border: none;
-      border-radius: 5px;
-      margin-top: .25em;
-      background: #5300FF;
-      color: white;
-    }
+    // &__btn {
+    //   width: 100%;
+    //   line-height: 2.5em;
+    //   font-size: 1em;
+    //   border: none;
+    //   border-radius: 5px;
+    //   margin-top: .25em;
+    //   background: #5300FF;
+    //   color: white;
+    // }
   }
 }
