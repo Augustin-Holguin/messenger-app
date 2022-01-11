@@ -6,7 +6,7 @@ import './style.scss';
 
 const FormAuth = ({ type, handleFormSubmit }) => {
     const {
-        pseudo, email, password, existingUser,
+        name, email, password, existingUser,
     } = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
@@ -29,10 +29,10 @@ const FormAuth = ({ type, handleFormSubmit }) => {
                     <input
                         className="form-auth__form__input"
                         type="text"
-                        placeholder="Pseudo"
-                        value={pseudo}
+                        placeholder="Name"
+                        value={name}
                         onChange={updateFieldValue}
-                        name="pseudo"
+                        name="name"
                     />
                 )}
                 <input

@@ -1,9 +1,9 @@
 import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE } from 'src/actions/user';
 
 const initialState = {
-    loggedIn: false,
+    loggedIn: false, // change to logged
     existingUser: true,
-    pseudo: '',
+    name: '',
     email: 'bouclierman@herocorp.io',
     password: '',
 };

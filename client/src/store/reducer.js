@@ -14,7 +14,7 @@ const initialState = {
     // user: {
     //     loggedIn: false,
     //     existingUser: undefined,
-    //     pseudo: null,
+    //     name: null,
     // },
     messages: [],
     lastSender: null,

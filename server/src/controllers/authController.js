@@ -5,16 +5,17 @@ const authController = {
         // get data from request
         const { name, email, password } = req.body;
         // 1- check if email already has an account in DB
-
+        console.log(name, email, password);
+        res.json('User registerd');
         // if not store new user in DB
-        bcrypt.hash(password, 10).then((hash) => {
-            // insert into DB
-        }).then(() => {
-            res.json('User registerd');
-            // res.json({logged: true, token: jsonwebtoken...})
-        }).catch((err) => {
-            res.status(401).json({ error: err })
-        });
+        // bcrypt.hash(password, 10).then((hash) => {
+        //     // insert into DB
+        // }).then(() => {
+        //     res.json('User registerd');
+        //     // res.json({logged: true, token: jsonwebtoken...})
+        // }).catch((err) => {
+        //     res.status(401).json({ error: err })
+        // });
     }
 }
 
