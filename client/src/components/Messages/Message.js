@@ -21,13 +21,13 @@ const Message = ({ author, content, isGroupMsg }) => {
     };
 
     return (
-        <li className={user.name === author ? 'message' : 'message message--left'} messageid={content}>
+        <li className={user.username === author ? 'message' : 'message message--left'} messageid={content}>
             {
                 !isGroupMsg && <p className="message__author">{author}</p>
             }
-            <div className={user.name === author ? 'message__content' : 'message__content content--left'}>
+            <div className={user.username === author ? 'message__content' : 'message__content content--left'}>
                 {
-                    !isGroupMsg && <span className={user.name === author ? 'message__content__triangle triangle--right' : 'message__content__triangle'} />
+                    !isGroupMsg && <span className={user.username === author ? 'message__content__triangle triangle--right' : 'message__content__triangle'} />
                 }
                 {content}
                 <div className="message__content__showMenu" onFocus={toggleMenu} onBlur={toggleMenu} tabIndex="0">

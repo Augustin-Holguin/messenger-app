@@ -5,7 +5,7 @@ import './style.scss';
 
 const Form = () => {
     const inputText = useSelector((state) => state.inputText);
-    const user = useSelector((state) => state.user.name);
+    const user = useSelector((state) => state.user.username);
     const dispatch = useDispatch();
 
     const inputEl = useRef();

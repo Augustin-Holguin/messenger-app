@@ -9,7 +9,7 @@ const socketMiddleware = (store) => (next) => (action) => {
         const { inputText, user } = store.getState();
 
         socket.emit('send_message', {
-            author: user.name,
+            author: user.username,
             content: inputText,
         });
 

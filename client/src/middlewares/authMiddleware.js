@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { SUBMIT_REGISTER, registerSuccess, SUBMIT_LOGIN } from 'src/actions/user';
+import { SUBMIT_REGISTER, registerOrLoginSuccess, SUBMIT_LOGIN } from 'src/actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
-    const { name, email, password } = store.getState().user;
+    const { username, email, password } = store.getState().user;
 
     switch (action.type) {
     case SUBMIT_REGISTER:
@@ -11,13 +11,15 @@ const authMiddleware = (store) => (next) => (action) => {
             method: 'post',
             url: 'http://localhost:3000/register',
             data: {
-                name,
+                username,
                 email,
                 password,
             },
         })
             .then((res) => {
-                store.dispatch(registerSuccess(res.data));
+                store.dispatch(registerOrLoginSuccess(res.data));
+                const { user } = store.getState();
+                localStorage.setItem('userToken', JSON.stringify(user.token));
             })
             .catch((err) => {
                 console.log(err.message);
@@ -25,7 +27,22 @@ const authMiddleware = (store) => (next) => (action) => {
             });
         break;
     case SUBMIT_LOGIN:
-        console.log('login submit');
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/login',
+            data: {
+                email,
+                password,
+            },
+        })
+            .then((res) => {
+                store.dispatch(registerOrLoginSuccess(res.data));
+                const { user } = store.getState();
+                localStorage.setItem('userToken', JSON.stringify(user.token));
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
         break;
     default:
         break;

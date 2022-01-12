@@ -4,7 +4,7 @@ const sequelize = require('../database');
 class User extends Model {};
 
 User.init({
-    name: {
+    username: {
         type: DataTypes.STRING,
         allowNull: false        
     },

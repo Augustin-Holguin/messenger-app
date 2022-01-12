@@ -1,7 +1,7 @@
 export const UPDATE_AUTH_INFO = 'UPDATE_AUTH_INFO';
 export const SUBMIT_REGISTER = 'SUBMIT_REGISTER';
-export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
+export const REGISTER_OR_LOGIN_SUCCESS = 'REGISTER_OR_LOGIN_SUCCESS';
 export const EXISTING_USER_TOGGLE = 'EXISTING_USER_TOGGLE';
 
 export const updateAuthInfo = (payload) => ({
@@ -13,8 +13,8 @@ export const submitRegister = () => ({
     type: SUBMIT_REGISTER,
 });
 
-export const registerSuccess = (payload) => ({
-    type: REGISTER_SUCCESS,
+export const registerOrLoginSuccess = (payload) => ({
+    type: REGISTER_OR_LOGIN_SUCCESS,
     payload,
 });
 
