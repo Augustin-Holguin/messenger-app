@@ -1,7 +1,7 @@
 import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE, REGISTER_OR_LOGIN_SUCCESS } from 'src/actions/user';
 
 const initialState = {
-    logged: false, // change to logged
+    logged: true,
     existingUser: true,
     username: '',
     email: 'jack@gmail.com',

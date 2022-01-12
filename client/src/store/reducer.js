@@ -11,19 +11,10 @@ import {
 
 const initialState = {
     inputText: '',
-    // user: {
-    //     logged: false,
-    //     existingUser: undefined,
-    //     username: null,
-    // },
     messages: [],
     lastSender: null,
     messageMenu: false,
     loginToggle: false,
-    // login: {
-    //     email: 'bouclierman@herocorp.io',
-    //     pwd: '',
-    // },
 };
 
 const reducer = (state = initialState, action = {}) => {

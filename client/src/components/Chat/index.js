@@ -1,16 +1,16 @@
 // == Import
-import './styles.scss';
+import './style.scss';
 
 // import Settings from 'src/components/Settings';
-import Messages from 'src/components/Messages';
-import Form from 'src/components/Form';
+import ChatListPanel from 'src/components/ChatListPanel';
+import Conversation from 'src/components/Conversation';
 
 // == Composant
 const Chat = () => (
-    <div className="app">
+    <div className="chat">
         {/* <Settings /> */}
-        <Messages />
-        <Form />
+        <ChatListPanel />
+        <Conversation />
     </div>
 );
 

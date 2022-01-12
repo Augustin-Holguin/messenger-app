@@ -5,16 +5,16 @@ import { displayLogin, updateLoginInfo, loginSubmit } from 'src/actions';
 import './style.scss';
 
 const Settings = () => {
-    const loginToggle = useSelector((state) => state.loginToggle);
+    const { logged } = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
 
-    const { email, pwd } = useSelector((state) => state.login);
+    const { email, password } = useSelector((state) => state.user);
 
     return (
-        <div className={loginToggle ? 'login' : 'login login--closed'}>
+        <div className={logged ? 'login' : 'login login--closed'}>
             <button
-                className={loginToggle ? 'login__toggle-btn btn--open' : 'login__toggle-btn'}
+                className={logged ? 'login__toggle-btn btn--open' : 'login__toggle-btn'}
                 type="button"
                 onClick={() => dispatch(displayLogin())}
             >
@@ -37,7 +37,7 @@ const Settings = () => {
                     className="login__form__input"
                     type="password"
                     placeholder="Password"
-                    value={pwd}
+                    value={password}
                     onChange={(e) => dispatch(updateLoginInfo(null, e.target.value))}
                 />
                 <button className="login__form__btn" type="submit">Send</button>
