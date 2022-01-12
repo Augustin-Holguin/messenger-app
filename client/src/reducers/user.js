@@ -1,11 +1,12 @@
-import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE } from 'src/actions/user';
+import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE, REGISTER_SUCCESS } from 'src/actions/user';
 
 const initialState = {
-    loggedIn: false, // change to logged
+    logged: false, // change to logged
     existingUser: true,
     name: '',
     email: 'bouclierman@herocorp.io',
     password: '',
+    token: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -19,6 +20,11 @@ const reducer = (state = initialState, action = {}) => {
         return {
             ...state,
             existingUser: !state.existingUser,
+        };
+    case REGISTER_SUCCESS:
+        return {
+            ...state,
+            ...action.payload,
         };
     default:
         return state;

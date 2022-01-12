@@ -12,7 +12,7 @@ import {
 const initialState = {
     inputText: '',
     // user: {
-    //     loggedIn: false,
+    //     logged: false,
     //     existingUser: undefined,
     //     name: null,
     // },

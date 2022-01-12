@@ -3,8 +3,10 @@ const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-const { postRegister } = require('./controllers/authController');
+const { postRegister, postLogin } = require('./controllers/authController');
 
-router.post('/register', postRegister);
+router
+.post('/register', postRegister)
+.post('/login', postLogin);
 
 module.exports = router;

@@ -4,10 +4,10 @@ import Welcome from 'src/components/Welcome';
 import Chat from 'src/components/Chat';
 
 const App = () => {
-    const { loggedIn } = useSelector((state) => state.user);
+    const { logged } = useSelector((state) => state.user);
 
     return (
-        !loggedIn ? <Welcome /> : <Chat />
+        !logged ? <Welcome /> : <Chat />
     );
 };
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SUBMIT_REGISTER, SUBMIT_LOGIN } from 'src/actions/user';
+import { SUBMIT_REGISTER, registerSuccess, SUBMIT_LOGIN } from 'src/actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
     const { name, email, password } = store.getState().user;
@@ -17,10 +17,11 @@ const authMiddleware = (store) => (next) => (action) => {
             },
         })
             .then((res) => {
-                console.log(res);
+                store.dispatch(registerSuccess(res.data));
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err.message);
+                // update state with error message to display it
             });
         break;
     case SUBMIT_LOGIN:
