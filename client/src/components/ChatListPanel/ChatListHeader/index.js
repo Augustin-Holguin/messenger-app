@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import './style.scss';
 
-import PanelHeader from '../../common/panel/PanelHeader';
+import PanelHeader from '../../common/panel/PanelHeader/PanelHeader';
 
 const ChatListHeader = () => {
     const { username } = useSelector((state) => state.user);

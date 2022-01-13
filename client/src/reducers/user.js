@@ -1,13 +1,15 @@
 import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE, REGISTER_OR_LOGIN_SUCCESS } from 'src/actions/user';
 
 const initialState = {
-    logged: true,
+    logged: false,
     existingUser: true,
+    // id: null,
     username: 'gus',
     email: 'gus@gmail.com',
     password: '',
     token: '',
-    friends: [],
+    friends: [{ name: 'AH' }, { name: 'Oh' }],
+    rooms: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

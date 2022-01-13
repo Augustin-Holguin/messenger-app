@@ -3,6 +3,7 @@ export const SUBMIT_REGISTER = 'SUBMIT_REGISTER';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const REGISTER_OR_LOGIN_SUCCESS = 'REGISTER_OR_LOGIN_SUCCESS';
 export const EXISTING_USER_TOGGLE = 'EXISTING_USER_TOGGLE';
+export const GET_FRIENDS = 'GET_FRIENDS';
 
 export const updateAuthInfo = (payload) => ({
     type: UPDATE_AUTH_INFO,
@@ -24,4 +25,8 @@ export const submitLogin = () => ({
 
 export const existingUserToggle = () => ({
     type: EXISTING_USER_TOGGLE,
+});
+
+export const getFriends = () => ({
+    type: GET_FRIENDS,
 });

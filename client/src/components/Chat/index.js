@@ -1,18 +1,24 @@
-// == Import
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './style.scss';
 
-// import Settings from 'src/components/Settings';
 import ChatListPanel from 'src/components/ChatListPanel';
 import Conversation from 'src/components/Conversation';
+import { getFriends } from 'src/actions/user';
 
-// == Composant
-const Chat = () => (
-    <div className="chat">
-        {/* <Settings /> */}
-        <ChatListPanel />
-        <Conversation />
-    </div>
-);
+const Chat = () => {
+    const dispatch = useDispatch();
 
-// == Export
+    useEffect(() => {
+        dispatch(getFriends());
+    }, []);
+
+    return (
+        <div className="chat">
+            <ChatListPanel />
+            <Conversation />
+        </div>
+    );
+};
+
 export default Chat;

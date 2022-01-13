@@ -2,10 +2,12 @@ import { useSelector } from 'react-redux';
 
 import './style.scss';
 
-import PanelHeader from '../../common/panel/PanelHeader';
+import PanelHeader from '../../common/panel/PanelHeader/PanelHeader';
 import FormSearch from '../../common/forms/FormSearch';
+import PanelList from '../../common/panel/PanelList/PanelList';
 
 const ChatListNewConv = () => {
+    const { friends } = useSelector((state) => state.user);
     const { newConvToggle, searchFriendInput } = useSelector((state) => state.settings);
 
     return (
@@ -17,6 +19,7 @@ const ChatListNewConv = () => {
                 inputValue={searchFriendInput}
                 handleSubmit={console.log('hello')}
             />
+            <PanelList list={friends} />
         </div>
     );
 };

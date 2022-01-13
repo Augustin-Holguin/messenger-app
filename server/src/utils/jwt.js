@@ -1,3 +1,4 @@
+const jwt = require('express-jwt');
 const { sign, verify } = require('jsonwebtoken');
 
 const createToken = (user) => {
@@ -13,8 +14,6 @@ const createToken = (user) => {
     return token;
 }
 
-const validateToken = (req, res, next) => {
-
-}
+const validateToken = jwt({ secret: process.env.JWT_SECRET, algorithms: ['HS256'] });
 
 module.exports = { createToken, validateToken };

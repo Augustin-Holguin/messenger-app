@@ -16,7 +16,9 @@ const authController = {
                     password: hash
                 })
                 .then((result) => {
+                    console.log(result)
                     res.json({
+                        // id: result.dataValues.id,
                         logged: true,
                         username,
                         password: '',
@@ -44,6 +46,7 @@ const authController = {
                     res.status(401).json({ error: 'Wrong email/password combination.'});
                 } else {
                     res.json({
+                        // id: user.id,
                         logged: true,
                         username: user.username,
                         password: '',
