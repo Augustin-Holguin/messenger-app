@@ -3,10 +3,11 @@ import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE, REGISTER_OR_LOGIN_SUCCESS } fro
 const initialState = {
     logged: true,
     existingUser: true,
-    username: '',
-    email: 'jack@gmail.com',
+    username: 'gus',
+    email: 'gus@gmail.com',
     password: '',
     token: '',
+    friends: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

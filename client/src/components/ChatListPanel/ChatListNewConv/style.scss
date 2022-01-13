@@ -1,0 +1,12 @@
+.chatListNewConv {
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: -100vh;
+    transition: .3s; 
+
+    &.chatListNewConv--open {
+        top: 0;
+    }
+}
