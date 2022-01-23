@@ -1,4 +1,11 @@
 .conversationHeader {
     background: #F0F0F0;
     height: 3.5em;
+    display: flex;
+    padding-left: 1em;
+
+    &__friend-info {
+        display: flex;
+        align-items: center;
+    }
 }

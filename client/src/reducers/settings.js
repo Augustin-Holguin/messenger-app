@@ -1,9 +1,13 @@
-import { DISPLAY_NEW_CONV, PANEL_INPUT_CHANGE } from 'src/actions/settings';
+import { DISPLAY_NEW_CONV, PANEL_INPUT_CHANGE, UPDATE_CONV_SELECTED } from 'src/actions/settings';
 
 const initialState = {
     newConvToggle: false,
     searchFriendInput: '',
     searchConvInput: '',
+    convSelected: {
+        isSelected: false,
+        id: null,
+    },
 };
 
 const settings = (state = initialState, action = {}) => {
@@ -17,6 +21,14 @@ const settings = (state = initialState, action = {}) => {
         return {
             ...state,
             ...action.payload,
+        };
+    case UPDATE_CONV_SELECTED:
+        return {
+            ...state,
+            convSelected: {
+                isSelected: true,
+                id: action.payload,
+            },
         };
     default:
         return state;

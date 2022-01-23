@@ -1,6 +1,6 @@
 // import { v4 as uuidv4 } from 'uuid';
 import {
-    NEW_MSG_INPUT,
+    // UPDATE_MSG_INPUT,
     DISPLAY_MSG_MENU,
     DELETE_MESSAGE,
     DISPLAY_LOGIN,
@@ -19,11 +19,11 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
-    case NEW_MSG_INPUT:
-        return {
-            ...state,
-            inputText: action.payload,
-        };
+    // case UPDATE_MSG_INPUT:
+    //     return {
+    //         ...state,
+    //         inputText: action.payload,
+    //     };
     case MESSAGE_RECEIVED:
         return {
             ...state,

@@ -1,18 +1,18 @@
 import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateMsgInput, postMessage } from 'src/actions';
+import { updateMsgInput, postMessage } from 'src/actions/message';
 import './style.scss';
 
 const Form = () => {
-    const inputText = useSelector((state) => state.inputText);
-    const user = useSelector((state) => state.user.username);
+    const { inputText } = useSelector((state) => state.messages);
+    const { convSelected } = useSelector((state) => state.settings);
     const dispatch = useDispatch();
 
     const inputEl = useRef();
 
     useEffect(() => {
         inputEl.current.focus();
-    }, [user]);
+    }, [convSelected]);
 
     const handleChange = (e) => {
         const newInputText = e.target.value;
@@ -37,6 +37,7 @@ const Form = () => {
                 value={inputText}
                 placeholder="Type your message"
                 onChange={handleChange}
+                disabled={!convSelected.isSelected}
             />
             <button
                 className="form__button"
