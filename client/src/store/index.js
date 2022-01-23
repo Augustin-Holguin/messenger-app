@@ -5,6 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 // import socketMiddleware from 'src/middlewares/socketMiddleware';
 import authMiddleware from 'src/middlewares/authMiddleware';
 import userMiddleware from 'src/middlewares/userMiddleware';
+import messageMiddleware from 'src/middlewares/messageMiddleware';
 import reducer from 'src/reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -15,7 +16,7 @@ const store = createStore(
         applyMiddleware(
             authMiddleware,
             userMiddleware,
-        //     ajaxMiddleware,
+            messageMiddleware,
         //     socketMiddleware,
         ),
     ),

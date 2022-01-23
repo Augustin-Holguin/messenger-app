@@ -19,7 +19,7 @@ const Messages = () => {
                 messages.map((message) => (
                     <Message
                         key={message.id}
-                        author={message.author}
+                        author={message.user.username}
                         content={message.content}
                         isGroupMsg={message.isGroupMsg}
                     />

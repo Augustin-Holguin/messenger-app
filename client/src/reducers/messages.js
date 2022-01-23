@@ -1,4 +1,4 @@
-import { UPDATE_MSG_INPUT } from 'src/actions/message';
+import { UPDATE_MSG_INPUT, UPDATE_MSG_LIST } from 'src/actions/message';
 
 const initialState = {
     inputText: '',
@@ -14,6 +14,11 @@ const messages = (state = initialState, action = {}) => {
         return {
             ...state,
             inputText: action.payload,
+        };
+    case UPDATE_MSG_LIST:
+        return {
+            ...state,
+            messages: action.payload,
         };
     default:
         return state;

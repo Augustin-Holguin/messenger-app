@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { updateConvSelected } from 'src/actions/settings';
+import { getRoomMessages } from 'src/actions/message';
 import './style.scss';
 
 const ChatListRooms = () => {
@@ -18,7 +19,10 @@ const ChatListRooms = () => {
                 { rooms.map((room) => (
                     <ListItemButton
                         key={room.roomId}
-                        onClick={() => dispatch(updateConvSelected(room.roomId))}
+                        onClick={() => {
+                            dispatch(updateConvSelected(room.roomId));
+                            dispatch(getRoomMessages());
+                        }}
                     >
                         <Avatar>AV</Avatar>
                         {room.friend[0].username}

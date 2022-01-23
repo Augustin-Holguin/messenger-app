@@ -1,6 +1,7 @@
 const User = require('./user');
 const Friend = require('./friend');
 const Room = require('./room');
+const Message = require('./message');
 
 User.hasMany(Friend, {
     foreignKey: 'user_id',
@@ -26,4 +27,24 @@ Room.belongsToMany(User, {
     as: 'users'
 });
 
-module.exports = { User, Friend, Room };
+Message.belongsTo(Room, {
+    foreignKey: 'room_id',
+    as: 'room'
+});
+
+Room.hasMany(Message, {
+    foreignKey: 'id',
+    as: 'messages'
+});
+
+Message.belongsTo(User, {
+    foreignKey: 'user_id',
+    as: 'user'
+});
+
+User.hasMany(Message, {
+    foreignKey: 'id',
+    as: 'messages'
+});
+
+module.exports = { User, Friend, Room, Message };

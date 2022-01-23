@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Message } = require('../models');
 
 const roomController = {
     getRooms: async function(req, res) {
@@ -22,7 +22,7 @@ const roomController = {
 
         const roomsFormated = [];
 
-        const x = rooms[0].rooms.forEach((room) => {
+        rooms[0].rooms.forEach((room) => {
             const roomId = room.id;
             const friend = room.users.filter((user) => user.id !== userId);
             
@@ -30,6 +30,27 @@ const roomController = {
         });
 
         res.status(200).json(roomsFormated);
+    },
+    getRoomMessages: async function(req, res) {
+        const roomId = req.params.roomId;
+
+        const messages = await Message.findAll({
+            where: {
+                room_id: roomId
+            },
+            include: [
+                {
+                    association: 'user',
+                    attributes: ['id', 'username', 'email'],
+                }
+            ],
+            attributes: ['id', 'room_id', 'content', 'timestamp'],
+            order: [['timestamp', 'asc']]
+        });
+
+        console.log(messages);
+
+        res.status(200).json(messages);
     }
 }
 
