@@ -15,10 +15,6 @@ Message.init({
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false    
-    },
-    timestamp: {
-        type: DataTypes.DATE,
-        allowNull: false    
     }
 }, {
     sequelize,

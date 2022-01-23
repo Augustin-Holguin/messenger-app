@@ -1,4 +1,4 @@
-import { UPDATE_MSG_INPUT, UPDATE_MSG_LIST } from 'src/actions/message';
+import { UPDATE_MSG_INPUT, UPDATE_MSG_LIST, POST_MESSAGE_SUCCESS } from 'src/actions/message';
 
 const initialState = {
     inputText: '',
@@ -19,6 +19,11 @@ const messages = (state = initialState, action = {}) => {
         return {
             ...state,
             messages: action.payload,
+        };
+    case POST_MESSAGE_SUCCESS:
+        return {
+            ...state,
+            messages: [...state.messages, ...action.payload],
         };
     default:
         return state;
