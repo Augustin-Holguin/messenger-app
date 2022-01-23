@@ -4,13 +4,13 @@ import './style.scss';
 
 import ChatListPanel from 'src/components/ChatListPanel';
 import Conversation from 'src/components/Conversation';
-import { getFriends } from 'src/actions/user';
+import { getRooms } from 'src/actions/user';
 
 const Chat = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getFriends());
+        dispatch(getRooms());
     }, []);
 
     return (

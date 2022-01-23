@@ -1,4 +1,6 @@
-import { UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE, REGISTER_OR_LOGIN_SUCCESS } from 'src/actions/user';
+import {
+    UPDATE_AUTH_INFO, EXISTING_USER_TOGGLE, REGISTER_OR_LOGIN_SUCCESS, UPDATE_USER_ROOMS,
+} from 'src/actions/user';
 
 const initialState = {
     logged: false,
@@ -28,6 +30,11 @@ const reducer = (state = initialState, action = {}) => {
         return {
             ...state,
             ...action.payload,
+        };
+    case UPDATE_USER_ROOMS:
+        return {
+            ...state,
+            rooms: action.payload,
         };
     default:
         return state;

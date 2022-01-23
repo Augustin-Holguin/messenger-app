@@ -34,7 +34,7 @@ FormSearch.propTypes = {
     placeholder: PropTypes.string.isRequired,
     inputName: PropTypes.string.isRequired,
     inputValue: PropTypes.string.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
+    // handleSubmit: PropTypes.func.isRequired,
 };
 
 export default FormSearch;

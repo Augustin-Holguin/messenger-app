@@ -17,9 +17,9 @@ const ChatListNewConv = () => {
                 placeholder="Find a contact"
                 inputName="searchFriendInput"
                 inputValue={searchFriendInput}
-                handleSubmit={console.log('hello')}
+                // handleSubmit={console.log('hello')}
             />
-            <PanelList list={friends} />
+            {/* <PanelList list={friends} /> */}
         </div>
     );
 };

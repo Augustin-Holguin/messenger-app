@@ -1,22 +1,21 @@
 import axios from 'axios';
-import { GET_FRIENDS } from 'src/actions/user';
+import { GET_ROOMS, updateUserRooms } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
     const token = JSON.parse(localStorage.getItem('userToken'));
 
     switch (action.type) {
-    case GET_FRIENDS:
+    case GET_ROOMS:
         axios({
             method: 'get',
-            url: 'http://localhost:3000/friends',
+            url: 'http://localhost:3000/rooms',
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
             .then((res) => {
-                const friends = res.data;
-                console.log(friends);
-                // store.dispatch(loginSuccess(userData));
+                const rooms = res.data;
+                store.dispatch(updateUserRooms(rooms));
             })
             .catch((err) => {
                 console.log(err.message);
