@@ -37,7 +37,7 @@ const messageMiddleware = (store) => (next) => (action) => {
             },
         })
             .then((res) => {
-                console.log(res.data)
+                console.log(res.data);
                 store.dispatch(postMessageSuccess(Array(res.data)));
             })
             .catch((err) => console.log(err));

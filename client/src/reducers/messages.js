@@ -23,6 +23,7 @@ const messages = (state = initialState, action = {}) => {
     case POST_MESSAGE_SUCCESS:
         return {
             ...state,
+            inputText: '',
             messages: [...state.messages, ...action.payload],
         };
     default:
